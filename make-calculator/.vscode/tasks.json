@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // [수정] 레이블을 Makefile 타겟과 일치시킵니다.
+            "label": "build_static",
+            "type": "shell",
+            // [수정] GCC 명령 대신 make static 명령을 실행합니다.
+            "command": "make static",
+            "args": [],
+            "options": {
+                // [수정] 작업 디렉토리를 프로젝트 루트로 변경하여 Makefile을 찾습니다.
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                // 이 작업을 기본 빌드 작업으로 설정합니다.
+                "kind": "build",
+                "isDefault": true
+            },
+            // [수정] 작업 설명을 명확히 합니다.
+            "detail": "Makefile의 static 타겟을 실행하여 정적 실행 파일을 빌드합니다."
+        }
+        // 이 tasks.json에는 build_shared, build_dynamic 타겟도 포함되어야 합니다.
+        // 해당 타겟들이 누락되었으므로, 아래에 추가하여 완성합니다.
+        ,
+        {
+            "label": "build_shared",
+            "type": "shell",
+            "command": "make shared",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build_dynamic",
+            "type": "shell",
+            "command": "make dynamic",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
