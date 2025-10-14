@@ -8,7 +8,7 @@ CC = gcc					# 컴파일러
 AR = ar						# 라이브러리 생성 도구
 
 # 옵션 설정
-CFLAGS = -Wall -Wextra 		# 컴파일러 옵션
+CFLAGS = -Wall -Wextra -g 	# 컴파일러 옵션
 FPIC = -fPIC				# 위치 독립 코드 옵션 (공유 라이브러리용)
 SHARED = -shared			# 공유 라이브러리 옵션
 
