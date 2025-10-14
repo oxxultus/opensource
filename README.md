@@ -40,3 +40,33 @@ bash 쉘 스크립트가 익숙해지도록 사용해 보고, 다음 조건을 �
     - vscode 의 상단 검색줄에서 디버깅시작(debug)를 선택하면 3가지 커스텀 디버깅 항목이 나옵니다.
     - 클릭해서 사용하면 됩니다. 주 main.c 혹은 main-dynamic.c 에서 종단점을 선택하고 디버깅을하면 잘 적용됩니다.
 
+#### make-calculator-gprof (실행 프로파일링 도구)
+정적 라이브러리 분석
+    - make run-static -> gmon.out 파일이 나옵니다.
+    - gprof ./build/static_calculater_app gmon.out
+    - make clean <- 필수로 실행 해주세요
+공유 라이브러리 분석
+    - make run-shared -> gmon.out 파일이 나옵니다.
+    - gprof ./build/shared_calculater_app gmon.out
+    - make clean <- 필수로 실행 해주세요
+동적 라이브러리 분석
+    - make run-dynamic -> gmon.out 파일이 나옵니다.
+    - gprof ./build/dynamic_calculater_app gmon.out
+    - make clean <- 필수로 실행 해주세요
+
+> 주의: 결과도출물인 gmon.out이라는 이름이 동일해 여러개를 한꺼번에 하면 오류가 발생할 수 있습니다.
+
+> 개별적으로 분석을 진행 해 주세요
+
+#### make-calculator-valgrind (메모리 손상 검사 도구)
+정적 라이브러리 분석
+    - make static
+    - valgrind—leak-check=full ./build/static_calculator_app
+공유 라이브러리 분석
+    - make shared
+    - valgrind—leak-check=full ./build/shared_calculator_app
+동적 라이브러리 분석
+    - make dynamic
+    - valgrind—leak-check=full ./build/dynamic_calculator_app
+
+> 원본과는 다른게 거의 없지만 오브젝트 생성과 실행파일 생성 부분에 -g 명령이 추가되어 있어야만 사용 가능
