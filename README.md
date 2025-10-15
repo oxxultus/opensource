@@ -49,15 +49,15 @@ bash 쉘 스크립트가 익숙해지도록 사용해 보고, 다음 조건을 �
 ---
 
 #### make-calculator-gprof (실행 프로파일링 도구)
-정적 라이브러리 분석
+- 정적 라이브러리 분석
     - make run-static -> gmon.out 파일이 나옵니다.
     - gprof ./build/static_calculater_app gmon.out
     - make clean <- 필수로 실행 해주세요
-공유 라이브러리 분석
+- 공유 라이브러리 분석
     - make run-shared -> gmon.out 파일이 나옵니다.
     - gprof ./build/shared_calculater_app gmon.out
     - make clean <- 필수로 실행 해주세요
-동적 라이브러리 분석
+- 동적 라이브러리 분석
     - make run-dynamic -> gmon.out 파일이 나옵니다.
     - gprof ./build/dynamic_calculater_app gmon.out
     - make clean <- 필수로 실행 해주세요
@@ -69,13 +69,13 @@ bash 쉘 스크립트가 익숙해지도록 사용해 보고, 다음 조건을 �
 ---
 
 #### make-calculator-valgrind (메모리 손상 검사 도구)
-정적 라이브러리 분석
+- 정적 라이브러리 분석
     - make static
     - valgrind—leak-check=full ./build/static_calculator_app
-공유 라이브러리 분석
+- 공유 라이브러리 분석
     - make shared
     - valgrind—leak-check=full ./build/shared_calculator_app
-동적 라이브러리 분석
+- 동적 라이브러리 분석
     - make dynamic
     - valgrind—leak-check=full ./build/dynamic_calculator_app
 
@@ -84,11 +84,11 @@ bash 쉘 스크립트가 익숙해지도록 사용해 보고, 다음 조건을 �
 ---
 
 #### assert-custom (수정한 assert-custom)
-	- make build
-	- 실행파일을 컴파일할 때 -NDEBUG 옵션을 추가하면됩니다.
-		- 예: gcc -DNDEBUG -I./include main.c -o build/test.app
-		- -DNDEBUG: -D매크로이름 의 형식으로 사용합니다.
-		- 헤더파일에서 선언한 매크로이름을 사용하면 됩니다.
+- make build
+- 실행파일을 컴파일할 때 -NDEBUG 옵션을 추가하면됩니다.
+	- 예: gcc -DNDEBUG -I./include main.c -o build/test.app
+	- -DNDEBUG: -D매크로이름 의 형식으로 사용합니다.
+	- 헤더파일에서 선언한 매크로이름을 사용하면 됩니다.
 
 > 컴파일 명령어는 Makefile을 확인하세요
 
