@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef NDBUG
+#ifdef NDEBUG
 // 아무런 동작도 하지 않는 코드로 정의됩니다.
 #define my_assert(expression) ((void)0)
 
